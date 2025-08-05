@@ -1,0 +1,63 @@
+[root@node01 python]# history
+    1  2025-08-04 23:58:13  
+    2  2025-08-04 23:36:43 cd /
+    3  2025-08-04 23:36:47 mkdir www
+    4  2025-08-04 23:37:01 mkdir -p www/server/python
+    5  2025-08-04 23:37:56 sudo yum groupinstall -y "Development Tools"
+    6  2025-08-04 23:38:35 sudo yum install -y   zlib-devel bzip2-devel openssl-devel ncurses-devel   sqlite-devel readline-devel tk-devel libffi-devel wget
+    7  2025-08-04 23:39:15 vim /etc/profile.d/python3.sh
+    8  2025-08-04 23:39:47 sudo yum install -y centos-release-scl
+    9  2025-08-04 23:39:53 sudo yum install -y devtoolset-8
+   10  2025-08-04 23:40:19 sudo yum install -y openssl-devel
+   11  2025-08-04 23:40:52 ls /usr/include/openssl/ssl.h
+   12  2025-08-04 23:40:56 ls /usr/lib64/libssl.so
+   13  2025-08-04 23:41:14 cd /usr/src
+   14  2025-08-04 23:41:24 sudo yum install -y curl perl make gcc zlib-devel
+   15  2025-08-04 23:41:34 sudo tar xzf openssl-1.1.1w.tar.gz
+   16  2025-08-04 23:41:39 cd openssl-1.1.1w
+   17  2025-08-04 23:41:49 sudo ./config   --prefix=/usr/local/openssl-1.1   --openssldir=/usr/local/openssl-1.1 \
+   18  2025-08-04 23:42:14 sudo ./config   --prefix=/usr/local/openssl-1.1.1   --openssldir=/usr/local/openssl-1.1.1   shared zlib
+   19  2025-08-04 23:42:21 sudo make -j$(nproc)
+   20  2025-08-04 23:44:09 echo '/usr/local/openssl-1.1.1/lib' | sudo tee /etc/ld.so.conf.d/openssl-1.1.1.conf
+   21  2025-08-04 23:44:32 sudo ldconfig
+   22  2025-08-04 23:45:18 ls /usr/local/openssl-1.1.1/lib/libssl.so
+   23  2025-08-04 23:45:27 ls /usr/local/openssl-1.1/lib/libssl.so
+   24  2025-08-04 23:46:04 sudo make -j$(nproc)
+   25  2025-08-04 23:46:11 sudo make install
+   26  2025-08-04 23:47:08 ls /usr/local/openssl-1.1.1/lib/libssl.so
+   27  2025-08-04 23:47:22 cd /usr/src/Python-3.11.9
+   28  2025-08-04 23:47:47 cd /usr/src
+   29  2025-08-04 23:47:54 tar xzf Python-3.11.9.tgz
+   30  2025-08-04 23:48:17 cd /usr/src/Python-3.11.9
+   31  2025-08-04 23:48:22 make distclean
+   32  2025-08-04 23:48:40 ./configure   --prefix=/usr/local/python3   --with-openssl=/usr/local/openssl-1.1.1   --with-openssl-rpath=auto   --enable-optimizations   --with-ensurepip=install
+   33  2025-08-04 23:49:08 make -j$(nproc)
+   34  2025-08-04 23:54:02 sudo make altinstall
+   35  2025-08-04 23:54:39 python --version
+   36  2025-08-04 23:54:42 python3 --version
+   37  2025-08-04 23:54:58 pip3 --version
+   38  2025-08-04 23:55:10 sudo ln -sf /usr/local/python3/bin/python3.11 /usr/local/bin/python3
+   39  2025-08-04 23:55:17 sudo ln -sf /usr/local/python3/bin/pip3.11      /usr/local/bin/pip3
+   40  2025-08-04 23:55:31 python3 --version
+   41  2025-08-04 23:55:35 pip3 --version
+   42  2025-08-04 23:55:44 hash -r
+   43  2025-08-04 23:55:55 echo $PATH
+   44  2025-08-04 23:56:09 python3 -c "import ssl; print(ssl.OPENSSL_VERSION)"
+   45  2025-08-04 23:56:33 sudo vi /etc/hosts
+   46  2025-08-04 23:57:21 sudo hostnamectl set-hostname node01
+   47  2025-08-04 23:57:26 hostnamectl
+   48  2025-08-04 23:57:46 /usr/local/python3/bin/python3.11 -c "import _ssl, ssl; print(ssl.OPENSSL_VERSION)"
+   49  2025-08-04 23:58:21 python3 --version
+   50  2025-08-04 23:58:29 echo $PATH
+   51  2025-08-04 23:58:42 pip3 --version
+   52  2025-08-04 23:58:54 which python3
+   53  2025-08-04 23:58:58 ls -l $(which python3)
+   54  2025-08-04 23:59:30 pip3 install --trusted-host pypi.doubanio.com --index-url http://pypi.doubanio.com/simple flask
+   55  2025-08-04 23:59:52 pip3 install yt-dlp
+   56  2025-08-05 00:00:01 cd /www
+   57  2025-08-05 00:00:02 ll
+   58  2025-08-05 00:00:03 cd server/
+   59  2025-08-05 00:00:04 ll
+   60  2025-08-05 00:00:05 cd python/
+   61  2025-08-05 00:00:06 ll
+   62  2025-08-05 00:00:13 python3 youtube_api.py 

@@ -3,6 +3,8 @@ import yt_dlp
 
 app = Flask(__name__)
 
+
+## 访问 http://127.0.0.1:8000/?url=https://www.youtube.com/watch?v=zDPE5citB9Q
 @app.route('/')
 def get_video_info():
     url = request.args.get('url')
@@ -57,3 +59,10 @@ def get_video_info():
 
 if __name__ == '__main__':
     app.run(port=8000)
+
+# 示例代码：使用 yt-dlp 获取视频信息
+import subprocess
+
+command = ['yt-dlp', '--cookies-from-browser', 'chrome', 'https://youtu.be/zDPE5citB9Q']
+result = subprocess.run(command, capture_output=True, text=True)
+print(result.stdout)
